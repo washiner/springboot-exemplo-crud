@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Empregados</title>
+</head>
+<body>
+
+    <h1> Lista de Empregados </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Matricula</th>
+                <th>Nome</th>
+                <th>Salario</th>
+                <th>Numero de Departamento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="empregado : ${empregados}">
+                <td th:text="${empregado.matricula}"></td>
+                <td th:text="${empregado.nomeEmpregado}"></td>
+                <td th:text="${empregado.salario}"></td>
+                <td th:text="${empregado.numDepto}"></td>
+                <td>
+                    <a th:href="@{/empregados/editar/{matricula}(matricula=${empregado.matricula})}">Editar</a>
+                    <a th:href="@{/empregados/deletar/{matricula}(matricula=${empregado.matricula})}">Deletar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+    <a th:href="@{/empregados/novo}">Novo Empregado</a>
+    
+</body>
+</html>

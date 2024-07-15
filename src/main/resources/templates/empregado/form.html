@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Empregado</title>
+</head>
+<body>
+
+    <h1> Formulario de Empregados </h1>
+    <form th:action="@{/empregados}" th:object="${empregado}" method="post">
+        <input type="hidden" th:field="*{matricula}"/>
+        <div>
+            <label for="nomeEmpregado">Nome:</label>
+            <input type="text" id="nomeEmpregado" th:field="*{nomeEmpregado}">
+        </div>
+        <div>
+            <label for="salario">Salario:</label>
+            <input type="number" id="salario" th:field="*{salario}">
+        </div>
+        <div>
+            <label for="numDepto">Numero do Departamento:</label>
+            <input type="number" id="numDepto" th:field="*{numDepto}">
+        </div>
+        <div>
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+
+    <a th:href="@{/empregados}">Voltar para a Lista</a>
+    
+</body>
+</html>
